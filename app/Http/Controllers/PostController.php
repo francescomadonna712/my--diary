@@ -49,4 +49,10 @@ class PostController extends Controller
         // Reindirizzamento alla vista dei post
         return redirect()->route('admin.posts.index')->with('success', 'Post created successfully.');
     }
+
+    public function show($id)
+    {
+        $post = Post::findOrFail($id);
+        return view('admin.posts.show', compact('post'));
+    }
 }
