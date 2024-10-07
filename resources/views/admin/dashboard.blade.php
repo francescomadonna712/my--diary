@@ -25,6 +25,13 @@
                                 onclick="return confirm('Sei sicuro di voler eliminare il tuo profilo?');">Elimina
                                 Profilo</button>
                         </form>
+
+
+                        <div class="mt-4">
+                            <a href="{{ route('admin.posts.index') }}" class="btn btn-primary">Vai ai tuoi post</a>
+                            <a href="{{ route('admin.posts.create') }}" class="btn btn-success">Crea un nuovo post</a>
+
+                        </div>
                     </div>
                 </div>
             </div>

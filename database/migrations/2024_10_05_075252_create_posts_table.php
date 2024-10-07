@@ -9,15 +9,12 @@ class CreatePostsTable extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id'); // Colonna per la relazione con l'utente
-            $table->string('title'); // Titolo del post
-            $table->text('content'); // Contenuto del post
-            $table->string('image')->nullable(); // Immagine del post
+            $table->id(); // Chiave primaria
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('title');
+            $table->text('content')->default('Nessun contenuto disponibile');
+            $table->string('image')->nullable();
             $table->timestamps();
-
-            // Imposta la chiave esterna
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
